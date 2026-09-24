@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Counter App
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,19 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">{{ counterName || 'Moje počítadlo' }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+      <p >{{counterName || "Counter"}}</p>
+      <ion-input [(ngModel)]="counterName" label="Název počítadla" label-placement="stacked" placeholder="Enter counter name"></ion-input>
+      <h1 class="counter-value">{{ count }}</h1>
+      <div class="counter-actions">
+        <ion-button color="danger" [disabled]="count === 0" (click)="decrementTen()">-10</ion-button>
+        <ion-button color="danger" [disabled]="count === 0" (click)="decrement()">-1</ion-button>
+        <ion-button color="primary" (click)="increment()">+1</ion-button>
+        <ion-button color="primary" (click)="incrementTen()">+10</ion-button>
+        <ion-button color="medium" fill="outline" [disabled]="count === 0" (click)="reset()">Reset</ion-button>
+      </div>
+  </ion-card-content>
 </ion-content>
