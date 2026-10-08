@@ -17,10 +17,10 @@
       <ion-input [(ngModel)]="counterName" label="Název počítadla" label-placement="stacked" placeholder="Enter counter name"></ion-input>
       <h1 class="counter-value">{{ count }}</h1>
       <div class="counter-actions">
-        <ion-button color="danger" [disabled]="count === 0" (click)="decrementTen()">-10</ion-button>
+        <ion-button color="danger" [disabled]="count === 0" (click)="decrementFive()">-5</ion-button>
         <ion-button color="danger" [disabled]="count === 0" (click)="decrement()">-1</ion-button>
         <ion-button color="primary" (click)="increment()">+1</ion-button>
-        <ion-button color="primary" (click)="incrementTen()">+10</ion-button>
+        <ion-button color="primary" (click)="incrementFive()">+5</ion-button>
         <ion-button color="medium" fill="outline" [disabled]="count === 0" (click)="reset()">Reset</ion-button>
       </div>
   </ion-card-content>

@@ -22,13 +22,13 @@ export class Tab1Page {
     }
   }
 
-  incrementTen() {
-    this.count += 10;
+  incrementFive() {
+    this.count += 5;
   }
 
-  decrementTen() {
-    if (this.count > 9) {
-      this.count -=10;
+  decrementFive() {
+    if (this.count > 4) {
+      this.count -=5;
     }
     else{
       this.count = 0;

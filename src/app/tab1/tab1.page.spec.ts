@@ -44,8 +44,8 @@ describe('Tab1Page', () => {
     expect(value.textContent?.trim()).toBe('0');
   });
 
-  it('should increment by ten', () => {
-    component.incrementTen();
-    expect(component.count).toBe(10);
+  it('should increment by five', () => {
+    component.incrementFive();
+    expect(component.count).toBe(5);
   });
 });
