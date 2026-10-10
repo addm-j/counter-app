@@ -1,8 +1,20 @@
 .history-header,
+.controls-container,
 ion-list,
 .state-message {
   max-width: 40rem;
   margin: 1rem auto;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sort-item {
+  --background: var(--ion-background-color);
+  border-radius: 8px;
 }
 
 .history-header {
@@ -10,6 +22,10 @@ ion-list,
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+
+  .stats p {
+    margin: 0.2rem 0;
+  }
 }
 
 .state-message {
