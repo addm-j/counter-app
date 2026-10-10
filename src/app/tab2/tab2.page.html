@@ -37,6 +37,8 @@
       <div class="stats">
         <p>Počet záznamů: <strong>{{ counterService.counters().length }}</strong></p>
         <p>Součet hodnot: <strong>{{ totalSum() }}</strong></p>
+        <p>Minimální hodnota: <strong>{{ minValue() }}</strong></p>
+        <p>Maximální hodnota: <strong>{{ maxValue() }}</strong></p>
       </div>
 
       <ion-button color="danger" fill="outline" size="small" (click)="confirmClear()">

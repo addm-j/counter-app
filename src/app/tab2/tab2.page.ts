@@ -55,6 +55,20 @@ export class Tab2Page implements OnInit {
     return this.counterService.counters().reduce((acc, c) => acc + c.value, 0);
   });
 
+  //min hodnota
+  readonly minValue = computed(() => {
+    const counters = this.counterService.counters();
+    if (counters.length === 0) return 0;
+    return counters.reduce((min, c) => Math.min(min, c.value), counters[0].value);
+  });
+
+  // max hodnota
+  readonly maxValue = computed(() => {
+    const counters = this.counterService.counters();
+    if (counters.length === 0) return 0;
+    return counters.reduce((max, c) => Math.max(max, c.value), counters[0].value);
+  });
+
   // Filtrovaný a seřazený seznam
   readonly filteredCounters = computed(() => {
     const query = this.searchQuery().trim().toLowerCase();
