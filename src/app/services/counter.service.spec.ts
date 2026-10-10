@@ -92,7 +92,7 @@ describe('CounterService', () => {
     });
   });
 
-  // 3. Odstranění jednoho záznamu
+  // 3. Odstranění jednoho záznamu 
   it('should remove counter by id and persist updated list', async () => {
     getMock.mockResolvedValue({
       value: JSON.stringify([first, second]),
@@ -141,5 +141,6 @@ describe('CounterService', () => {
     );
 
     errorSpy.mockRestore();
+    
   });
 });
