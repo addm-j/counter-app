@@ -17,8 +17,8 @@ import {
   IonToolbar,
   ToastController,
 } from '@ionic/angular';
-import { CounterService } from '../services/counter.service';
 import { FirebaseAuthService } from '../services/firebase-auth.service';
+import { FirebaseCounterService } from '../services/firebase-counter.service';
 
 export type SortOption = 'date' | 'name' | 'value';
 
@@ -44,7 +44,7 @@ export type SortOption = 'date' | 'name' | 'value';
   ],
 })
 export class Tab2Page implements OnInit {
-  readonly counterService = inject(CounterService);
+  readonly counterService = inject(FirebaseCounterService);
   private readonly alertController = inject(AlertController);
   private readonly toastController = inject(ToastController);
   readonly auth = inject(FirebaseAuthService);
@@ -95,23 +95,16 @@ export class Tab2Page implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.counterService.initialize();
-
-    try {
-      await this.auth.initialize();
-    } catch (error) {
-      console.error(error);
-      this.authError.set('Přihlášení se nezdařilo. Zkontrolujte konfiguraci.');
-    }
   }
 
   async remove(id: string): Promise<void> {
-    await this.counterService.remove(id);
-    await this.showToast('Záznam byl odstraněn.');
+    /*await this.counterService.remove(id);
+    await this.showToast('Záznam byl odstraněn.');*/
   }
 
   //ion-alert
   async confirmClear(): Promise<void> {
-    const alert = await this.alertController.create({
+    /*const alert = await this.alertController.create({
       header: 'Vymazat celou historii?',
       message: 'Opravdu chcete smazat všechny záznamy? Tuto akci nelze vzít zpět.',
       buttons: [
@@ -130,15 +123,15 @@ export class Tab2Page implements OnInit {
       ],
     });
 
-    await alert.present();
+    await alert.present();*/
   }
 
-  private async showToast(message: string): Promise<void> {
+  /*private async showToast(message: string): Promise<void> {
     const toast = await this.toastController.create({
       message,
       duration: 2000,
       position: 'bottom',
     });
     await toast.present();
-  }
+  }*/
 }
