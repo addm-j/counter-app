@@ -18,6 +18,7 @@ import {
   ToastController,
 } from '@ionic/angular';
 import { CounterService } from '../services/counter.service';
+import { FirebaseAuthService } from '../services/firebase-auth.service';
 
 export type SortOption = 'date' | 'name' | 'value';
 
@@ -46,6 +47,8 @@ export class Tab2Page implements OnInit {
   readonly counterService = inject(CounterService);
   private readonly alertController = inject(AlertController);
   private readonly toastController = inject(ToastController);
+  readonly auth = inject(FirebaseAuthService);
+  readonly authError = signal('');
 
   readonly searchQuery = signal<string>('');
   readonly sortBy = signal<SortOption>('date');
@@ -92,6 +95,13 @@ export class Tab2Page implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.counterService.initialize();
+
+    try {
+      await this.auth.initialize();
+    } catch (error) {
+      console.error(error);
+      this.authError.set('Přihlášení se nezdařilo. Zkontrolujte konfiguraci.');
+    }
   }
 
   async remove(id: string): Promise<void> {
